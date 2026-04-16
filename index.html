@@ -3,16 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <title>Kolo štěstí</title>
+
 <style>
-body { text-align:center; background:orange; font-family:Arial; }
-#wheel { width:300px;height:300px;border-radius:50%;margin:50px auto;border:10px solid white;transition:transform 4s;}
-button {padding:10px 20px;font-size:18px;}
+body {
+    text-align:center;
+    background:#ff7a00;
+    font-family:Arial;
+    color:white;
+}
+
+#wheel {
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    margin:50px auto;
+    border:8px solid white;
+    background: conic-gradient(
+        #fff 0deg 72deg,
+        #ffcc00 72deg 144deg,
+        #fff 144deg 216deg,
+        #ffcc00 216deg 288deg,
+        #fff 288deg 360deg
+    );
+    transition: transform 4s ease-out;
+}
+
+button {
+    padding:15px 25px;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
 </style>
 </head>
+
 <body>
 
-<h1>Kolo štěstí</h1>
+<h1>Kolo štěstí 🎡</h1>
+
 <div id="wheel"></div>
+
 <button onclick="spin()">Točit</button>
 
 <p id="result"></p>
@@ -26,7 +58,7 @@ let r=Math.floor(Math.random()*prizes.length);
 let deg=3600+(r*72);
 wheel.style.transform="rotate("+deg+"deg)";
 setTimeout(()=>{
-document.getElementById("result").innerHTML="Gratulujeme! "+prizes[r];
+document.getElementById("result").innerHTML="🎉 Gratulujeme! "+prizes[r];
 },4000);
 }
 </script>
