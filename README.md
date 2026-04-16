@@ -1,0 +1,1 @@
+# allegrro.cz
