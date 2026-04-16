@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>Kolo štěstí</title>
+<style>
+body { text-align:center; background:orange; font-family:Arial; }
+#wheel { width:300px;height:300px;border-radius:50%;margin:50px auto;border:10px solid white;transition:transform 4s;}
+button {padding:10px 20px;font-size:18px;}
+</style>
+</head>
+<body>
+
+<h1>Kolo štěstí</h1>
+<div id="wheel"></div>
+<button onclick="spin()">Točit</button>
+
+<p id="result"></p>
+
+<script>
+const prizes = ["10000 Kč","15000 Kč","20000 Kč","25000 Kč","30000 Kč"];
+
+function spin(){
+let wheel=document.getElementById("wheel");
+let r=Math.floor(Math.random()*prizes.length);
+let deg=3600+(r*72);
+wheel.style.transform="rotate("+deg+"deg)";
+setTimeout(()=>{
+document.getElementById("result").innerHTML="Gratulujeme! "+prizes[r];
+},4000);
+}
+</script>
+
+</body>
+</html>
